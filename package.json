@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "coverage" : "vitest run --coverage"
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -36,6 +36,7 @@
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
+    "@vitest/coverage-v8": "^0.34.3",
     "babel-jest": "^29.6.4",
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
