@@ -1,28 +1,29 @@
-//import { useState } from 'react'
-//import reactLogo from './assets/react.svg'
-//import viteLogo from '/vite.svg'
-import './App.scss'
-import TenTopicsDtoTable from './components/ui/TenTopicsDtoTable'
-import Navbar from './components/layouts/Navbar'
+import './App.scss';
+import TenTopicsDtoTable from './components/ui/TenTopicsTable/TenTopicsDtoTable';
+import Navbar from './components/layouts/Navbar';
+import TitleComponent from './components/layouts/title/TitleComponent';
 
 function App() {
     //const [count, setCount] = useState(0)
 
     return (
-        <>
-            <div className="app">
+        <section>
+            <nav className="app">
                 <Navbar />
-            </div>
-            <div className="container">
+            </nav>
+            <section className="container">
                 <header className="container__header">
-                    <h1>Top ten topics</h1>
+                    <TitleComponent
+                        name={'Top ten topics'}
+                        size={64}
+                    ></TitleComponent>
                 </header>
                 <main className="container__table">
                     <TenTopicsDtoTable />
                 </main>
-            </div>
-        </>
-    )
+            </section>
+        </section>
+    );
 }
 
-export default App
+export default App;

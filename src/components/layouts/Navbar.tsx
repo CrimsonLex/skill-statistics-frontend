@@ -1,14 +1,13 @@
-import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Button'
-import './Navbar.scss'
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 export default function Navbar() {
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="relative" color="secondary">
+        <Box sx={{ flexGrow: 1 }} className="navbar-container">
+            <AppBar position="relative" sx={{ bgcolor: 'grey' }}>
                 <Toolbar>
                     <Typography
                         variant="h6"
@@ -20,5 +19,5 @@ export default function Navbar() {
                 </Toolbar>
             </AppBar>
         </Box>
-    )
+    );
 }

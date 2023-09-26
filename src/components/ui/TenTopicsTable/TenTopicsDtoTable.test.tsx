@@ -1,7 +1,7 @@
 import { render, renderHook, waitFor } from '@testing-library/react';
 import TopicsTableMaterialUI from './TenTopicsDtoTable';
 import { vi } from 'vitest';
-import { TopicDTO } from '../../models/topicInterface';
+import { TopicDTO } from './TenTopicsTable/topicInterface.types';
 import axios from 'axios';
 import { act } from 'react-dom/test-utils';
 import { useEffect } from 'react';
