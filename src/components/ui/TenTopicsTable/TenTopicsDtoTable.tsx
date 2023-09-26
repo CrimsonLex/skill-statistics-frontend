@@ -41,13 +41,6 @@ const TopicsTableMaterialUI: React.FC = () => {
             });
     }, []);
 
-    /**
-     * METODOLOGIA BEM
-     * bloques: padres/contenedores de una parte del codigo
-     * elementos: son los hijos de los bloques, un bloque puede tener multiples elementos, pero no puede haber
-     * un elemento dentro un elemento.
-     * modificadores: clases que van a modificar de acuerdo a x comportamiento del codigo un color o logica del programa.
-     */
     return (
         <TableComponent
             className="container"
