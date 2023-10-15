@@ -5,27 +5,6 @@ import './TenTopicsDtoTable.scss';
 import TableComponent from '../../layouts/table/TableComponent';
 import { Header } from '../../layouts/table/TableComponent.types';
 
-const pruebasTopic: TopicDTO[] = [
-    {
-        topicId: 1,
-        topicName: 'oa1',
-        resourcesNumber: 5,
-    },
-    {
-        topicId: 2,
-        topicName: 'oa2',
-        resourcesNumber: 3,
-    },
-    {
-        topicId: 3,
-        topicName: 'oa3',
-        resourcesNumber: 8,
-    },
-];
-
-//const tableData = pruebasTopic.map(topic => {name: topic.topicName, id: topic.topicId})
-
-const headers: string[] = ['topicId', 'topicName', 'resourcesNumber'];
 const headersNew: Header[] = [
     {
         key: 'topicId',
