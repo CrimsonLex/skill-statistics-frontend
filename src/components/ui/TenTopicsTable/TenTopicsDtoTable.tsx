@@ -3,6 +3,7 @@ import axios from 'axios';
 import { TopicDTO } from './topicInterface.types';
 import './TenTopicsDtoTable.scss';
 import TableComponent from '../../layouts/table/TableComponent';
+import { Header } from '../../layouts/table/TableComponent.types';
 
 const pruebasTopic: TopicDTO[] = [
     {
@@ -22,7 +23,23 @@ const pruebasTopic: TopicDTO[] = [
     },
 ];
 
+//const tableData = pruebasTopic.map(topic => {name: topic.topicName, id: topic.topicId})
+
 const headers: string[] = ['topicId', 'topicName', 'resourcesNumber'];
+const headersNew: Header[] = [
+    {
+        key: 'topicId',
+        label: 'Topic Id',
+    },
+    {
+        key: 'topicName',
+        label: 'Name',
+    },
+    {
+        key: 'resourcesNumber',
+        label: 'Number of resources',
+    },
+];
 const TOPIC_BASE_REST_API_URL =
     'http://localhost:8080/skill-statistics/api/v1/topics';
 
@@ -45,8 +62,9 @@ const TopicsTableMaterialUI: React.FC = () => {
         <TableComponent
             className="container"
             data={topics}
-            headers={headers}
-            loadingMessage={''}
+            headers={headersNew}
+            loadingMessage={'Topics Loading'}
+            emptyMessage={'No Topics yet'}
         ></TableComponent>
     );
 };
