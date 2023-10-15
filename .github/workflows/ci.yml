@@ -20,7 +20,7 @@ jobs:
                  cache: yarn
               
             - name: Yarn install
-              run: yarn install --immutable
+              run: yarn install 
 
             - name: Eslint check
               run: yarn lint
