@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function Navbar() {
     return (
@@ -14,8 +15,12 @@ export default function Navbar() {
                         component="div"
                         sx={{ flexGrow: 1 }}
                     ></Typography>
-                    <Button color="inherit">Login</Button>
-                    <Button color="inherit">Sign Up</Button>
+                    <Button color="inherit">
+                        <NavLink to="login">Login</NavLink>
+                    </Button>
+                    <Button color="inherit">
+                        <NavLink to="signUp">Sign Up</NavLink>
+                    </Button>
                 </Toolbar>
             </AppBar>
         </Box>

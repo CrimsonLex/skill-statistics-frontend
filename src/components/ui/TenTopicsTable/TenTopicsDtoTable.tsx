@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { TopicDTO } from './topicInterface.types';
-import './TenTopicsDtoTable.scss';
 import TableComponent from '../../layouts/table/TableComponent';
 import { Header } from '../../layouts/table/TableComponent.types';
+import { ApiUrls } from '../../../common/apiUrls';
 
 const headersNew: Header[] = [
     {
@@ -19,16 +19,12 @@ const headersNew: Header[] = [
         label: 'Number of resources',
     },
 ];
-const TOPIC_BASE_REST_API_URL =
-    'http://localhost:8080/skill-statistics/api/v1/topics';
-
 const TopicsTableMaterialUI: React.FC = () => {
     const [topics, setTopics] = useState<TopicDTO[]>([]);
 
     useEffect(() => {
-        // Fetch the data from your API
         axios
-            .get(TOPIC_BASE_REST_API_URL + '/getTenTopicsDTO')
+            .get(ApiUrls.GET_TEN_TOPICS)
             .then((response) => {
                 setTopics(response.data);
             })
