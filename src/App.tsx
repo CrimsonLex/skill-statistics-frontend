@@ -4,8 +4,6 @@ import Navbar from './components/layouts/Navbar';
 import TitleComponent from './components/layouts/title/TitleComponent';
 
 function App() {
-    //const [count, setCount] = useState(0)
-
     return (
         <section>
             <nav className="app">
