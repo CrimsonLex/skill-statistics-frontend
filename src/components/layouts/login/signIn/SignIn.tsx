@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { TextField, Button, Typography } from '@mui/material';
 import './SignIn.scss';
+import { expressApiUrls } from '../../../../common/apiUrls';
 
 export default function SignIn() {
     const [email, setEmail] = useState('');
@@ -9,7 +10,7 @@ export default function SignIn() {
 
     const handleLogin = async (email: string, password: string) => {
         try {
-            const response = await fetch('http://localhost:3002/auth/login', {
+            const response = await fetch(expressApiUrls.LOGIN, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

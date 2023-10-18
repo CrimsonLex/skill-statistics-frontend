@@ -3,7 +3,7 @@ import axios from 'axios';
 import { TopicDTO } from './topicInterface.types';
 import TableComponent from '../../layouts/table/TableComponent';
 import { Header } from '../../layouts/table/TableComponent.types';
-import { ApiUrls } from '../../../common/apiUrls';
+import { springApiUrls } from '../../../common/apiUrls';
 
 const headersNew: Header[] = [
     {
@@ -24,7 +24,7 @@ const TopicsTableMaterialUI: React.FC = () => {
 
     useEffect(() => {
         axios
-            .get(ApiUrls.GET_TEN_TOPICS)
+            .get(springApiUrls.GET_TEN_TOPICS)
             .then((response) => {
                 setTopics(response.data);
             })
