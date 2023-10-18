@@ -1,0 +1,11 @@
+.table-container{
+    &__header{
+        background-color: #b3aaaa;
+    }
+    &__even-row{
+        background-color: #ffffff;
+    }
+    &__odd-row{
+        background-color: #f2f2f2;
+    }
+}

@@ -1,0 +1,39 @@
+name: ci
+
+on:
+    push:
+        branches:
+            - features/**
+            - UiTopTen
+
+jobs:
+    ci-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Set Up Node
+              uses: actions/setup-node@v3
+              with:
+                 node-version: 18
+                 cache: yarn
+              
+            - name: Yarn install
+              run: yarn install 
+
+            - name: Eslint check
+              run: yarn lint
+            
+            - name: Testing and coverage
+              run: yarn coverage
+
+
+            
+
+
+            
+
+
+
+        
