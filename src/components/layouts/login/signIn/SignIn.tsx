@@ -7,6 +7,7 @@ export default function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [customError, setCustomError] = useState('');
 
     const handleLogin = async (email: string, password: string) => {
         try {
@@ -37,10 +38,19 @@ export default function SignIn() {
         event.preventDefault();
         if (email && password) {
             handleLogin(email, password);
-        } else {
-            setError('Please, fill the info with your credentials');
         }
     };
+
+    const handleEmailChange = (e) => {
+        const newEmail = e.target.value;
+        setEmail(newEmail);
+        if (validateEmail(newEmail)) {
+            setCustomError('Correo electrónico no válido');
+        } else {
+            setCustomError(''); // Limpia el mensaje de error si es válido
+        }
+    };
+    const isSubmitedDisabled = !email || !password;
 
     return (
         <div className={'signin-container'}>
@@ -50,19 +60,31 @@ export default function SignIn() {
                 </Typography>
                 <TextField
                     label="Email"
-                    type="text"
+                    type="email"
+                    variant="outlined"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className={'input'}
-                    fullWidth
+                    title="The email field is not valid"
+                    error={Boolean(customError)}
                 />
+                <input
+                    id="emailAddress"
+                    type="email"
+                    size="64"
+                    maxlength="64"
+                    required
+                    placeholder="username@beststartupever.com"
+                    pattern=".+@beststartupever\.com"
+                    title="Please provide only a Best Startup Ever corporate email address"
+                />
+                <input type="submit" value="Send Request" />
                 <TextField
                     label="Password"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className={'input'}
-                    fullWidth
                 />
                 {error && (
                     <Typography className={'error-text'}>{error}</Typography>
@@ -72,8 +94,9 @@ export default function SignIn() {
                     variant="contained"
                     color="primary"
                     className={'submit-button'}
+                    disabled={isSubmitedDisabled}
                 >
-                    Submit
+                    Sign In
                 </Button>
             </form>
         </div>

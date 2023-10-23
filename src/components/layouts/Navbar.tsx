@@ -4,22 +4,29 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { NavLink } from 'react-router-dom';
+import './Navbar.scss';
 
 export default function Navbar() {
     return (
-        <Box sx={{ flexGrow: 1 }} className="navbar-container">
+        <Box className="navbar-container">
             <AppBar position="relative" sx={{ bgcolor: 'grey' }}>
-                <Toolbar>
-                    <Typography
-                        variant="h6"
-                        component="div"
-                        sx={{ flexGrow: 1 }}
-                    ></Typography>
-                    <Button color="inherit">
-                        <NavLink to="login">Login</NavLink>
+                <Toolbar className="navbar-items">
+                    <Typography variant="h6" component="div"></Typography>
+                    <Button color="inherit" className="navbar-items--first">
+                        <NavLink to="/" className="navbar-items__link">
+                            Home
+                        </NavLink>
                     </Button>
-                    <Button color="inherit">
-                        <NavLink to="signUp">Sign Up</NavLink>
+
+                    <Button color="inherit" className="nav-link">
+                        <NavLink to="login" className="navbar-items__link">
+                            Login
+                        </NavLink>
+                    </Button>
+                    <Button color="inherit" className="nav-link">
+                        <NavLink to="signUp" className="navbar-items__link">
+                            Sign Up
+                        </NavLink>
                     </Button>
                 </Toolbar>
             </AppBar>

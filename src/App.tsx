@@ -1,14 +1,10 @@
 import './App.scss';
 import TenTopicsDtoTable from './components/ui/TenTopicsTable/TenTopicsDtoTable';
-import Navbar from './components/layouts/Navbar';
 import TitleComponent from './components/layouts/title/TitleComponent';
 
 function App() {
     return (
         <section>
-            <nav className="app">
-                <Navbar />
-            </nav>
             <section className="container">
                 <header className="container__header">
                     <TitleComponent
