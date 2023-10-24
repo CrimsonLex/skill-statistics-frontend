@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
+import userEvent from '@testing-library/user-event';
 import SignIn from './SignIn';
 
 describe('SignIn Component', () => {
@@ -9,7 +10,7 @@ describe('SignIn Component', () => {
         expect(loginTitle).toBeDefined();
     });
 
-    it('handles form submission when email and password are provided', async () => {
+    test('handles form submission when email and password are provided', async () => {
         render(<SignIn />);
 
         const emailInput = screen.getByLabelText('Email');
@@ -23,7 +24,7 @@ describe('SignIn Component', () => {
         expect(window.location.pathname).toBe('/');
     });
 
-    it('disables the submit button when email or password is missing', () => {
+    test('disables the submit button when email or password is missing', () => {
         const { getByText, getByLabelText } = render(<SignIn />);
 
         const emailInput = getByLabelText('Email');
@@ -38,5 +39,20 @@ describe('SignIn Component', () => {
         fireEvent.change(passwordInput, { target: { value: 'password123' } });
 
         expect(signInButton).not.toBeDisabled();
+    });
+    it('displays error message for invalid email', () => {
+        render(<SignIn />);
+
+        const emailInput = screen.getByLabelText('Email');
+        userEvent.type(emailInput, 'invalid-email');
+        emailInput.dispatchEvent(new Event('input'));
+
+        const signInButton = screen.getByText('Sign In');
+        userEvent.click(signInButton);
+
+        const errorMessage = screen.findByText(
+            'Not a valid email, or the field is empty'
+        );
+        expect(errorMessage).toBeDefined();
     });
 });

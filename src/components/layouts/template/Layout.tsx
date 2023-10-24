@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import Navbar from '../Navbar';
+import { Outlet } from 'react-router-dom';
 
 interface LayoutProps {
     children: ReactNode;
@@ -8,6 +9,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => (
     <main>
         <Navbar />
+        <Outlet />
         {children}
     </main>
 );

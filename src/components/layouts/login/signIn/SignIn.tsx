@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, FocusEvent } from 'react';
 import { TextField, Button, Typography } from '@mui/material';
 import './SignIn.scss';
 import { expressApiUrls } from '../../../../common/apiUrls';
@@ -7,7 +7,7 @@ export default function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [customError, setCustomError] = useState('');
+    const [errorMessages, setErrorMessages] = useState({});
 
     const handleLogin = async (email: string, password: string) => {
         try {
@@ -40,16 +40,32 @@ export default function SignIn() {
             handleLogin(email, password);
         }
     };
+    const fieldValidations = (
+        field: string,
+        e: FocusEvent<HTMLInputElement | HTMLTextAreaElement, Element>
+    ) => {
+        const value = e.target.value;
+        let isValid = false;
+        let error = 'Not a valid field';
 
-    const handleEmailChange = (e) => {
-        const newEmail = e.target.value;
-        setEmail(newEmail);
-        if (validateEmail(newEmail)) {
-            setCustomError('Correo electrónico no válido');
+        if (field == 'password') {
+            isValid = !!value;
+        }
+        if (field == 'email') {
+            isValid = !!value;
+            const emailRegex = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+            isValid = emailRegex.test(value);
+            error = 'Not a valid email, or the field is empty';
+        }
+
+        if (!isValid) {
+            setErrorMessages({ ...errorMessages, [field]: error });
+            console.log(JSON.stringify(errorMessages));
         } else {
-            setCustomError(''); // Limpia el mensaje de error si es válido
+            setErrorMessages({ ...errorMessages, [field]: null });
         }
     };
+
     const isSubmitedDisabled = !email || !password;
 
     return (
@@ -60,25 +76,18 @@ export default function SignIn() {
                 </Typography>
                 <TextField
                     label="Email"
-                    type="email"
+                    type="text"
                     variant="outlined"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    onBlur={(e) => fieldValidations('email', e)}
                     className={'input'}
-                    title="The email field is not valid"
-                    error={Boolean(customError)}
+                    error={!!errorMessages.email}
+                    helperText={
+                        errorMessages.email ? errorMessages.email : null
+                    }
                 />
-                <input
-                    id="emailAddress"
-                    type="email"
-                    size="64"
-                    maxlength="64"
-                    required
-                    placeholder="username@beststartupever.com"
-                    pattern=".+@beststartupever\.com"
-                    title="Please provide only a Best Startup Ever corporate email address"
-                />
-                <input type="submit" value="Send Request" />
+
                 <TextField
                     label="Password"
                     type="password"
@@ -95,6 +104,7 @@ export default function SignIn() {
                     color="primary"
                     className={'submit-button'}
                     disabled={isSubmitedDisabled}
+                    style={{ pointerEvents: 'auto' }}
                 >
                     Sign In
                 </Button>
