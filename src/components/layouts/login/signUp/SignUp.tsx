@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TextField, Button, Typography, Container, Box } from '@mui/material';
+import { TextField, Button, Typography, Container } from '@mui/material';
 
 import './SignUp.scss';
 
@@ -47,7 +47,7 @@ export default function SignUp() {
 
     return (
         <Container>
-            <Box className={'signup-container'}>
+            <div className={'signup-container'}>
                 <Typography variant="h5" gutterBottom>
                     Sign Up
                 </Typography>
@@ -87,7 +87,7 @@ export default function SignUp() {
                         Submit
                     </Button>
                 </form>
-            </Box>
+            </div>
         </Container>
     );
 }
