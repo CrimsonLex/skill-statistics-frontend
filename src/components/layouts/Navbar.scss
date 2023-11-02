@@ -1,0 +1,15 @@
+.navbar-container {
+    .navbar-items {
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+        &--first{
+            margin-right: 80%;
+        }
+        &__link {
+            text-decoration: none;
+            color: inherit;
+            margin-right: 10px;
+        }
+    }
+}

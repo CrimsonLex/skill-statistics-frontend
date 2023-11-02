@@ -1,0 +1,25 @@
+.signin-container {
+    display: flex;
+    margin-top: 200px;
+    justify-content: center;
+    align-items: center;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    row-gap: 20px;
+}
+
+.input {
+    margin: 10px 0;
+}
+
+.submit-button {
+    margin-top: 20px;
+}
+
+.error-text {
+    color: red;
+    margin-top: 10px;
+}

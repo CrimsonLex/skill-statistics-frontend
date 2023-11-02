@@ -1,0 +1,21 @@
+.auth-navbar-container {
+    justify-content: space-between;
+    .auth-navbar-items {
+        display: flex;
+        align-items: center;
+        &--left {
+            flex-grow: 1;
+        }
+        &--right {
+            justify-content: flex-end;
+        }
+        &--first {
+            margin-right: 10px;
+        }
+        &__link {
+            text-decoration: none;
+            color: inherit;
+            margin-right: 10px;
+        }
+    }
+}

@@ -2614,12 +2614,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:^14.4.3":
-  version: 14.4.3
-  resolution: "@testing-library/user-event@npm:14.4.3"
+"@testing-library/user-event@npm:^14.5.1":
+  version: 14.5.1
+  resolution: "@testing-library/user-event@npm:14.5.1"
   peerDependencies:
     "@testing-library/dom": ">=7.21.4"
-  checksum: 852c48ea6db1c9471b18276617c84fec4320771e466cd58339a732ca3fd73ad35e5a43ae14f51af51a8d0a150dcf60fcaab049ef367871207bea8f92c4b8195e
+  checksum: 3e6bc9fd53dfe2f3648190193ed2fd4bca2a1bfb47f68810df3b33f05412526e5fd5c4ef9dc5375635e0f4cdf1859916867b597eed22bda1321e04242ea6c519
   languageName: node
   linkType: hard
 
@@ -5374,6 +5374,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-mock-fetch@npm:^2.0.5":
+  version: 2.0.5
+  resolution: "jest-mock-fetch@npm:2.0.5"
+  dependencies:
+    jest-mock-promise: ^2.0.2
+  checksum: 26ef65e685d7fa595f195ac0676aa061d0cfa0f9ef4b919c0d122a431e3654784e59bc7bf48004bd15f866efec715fc814916c110f21a591b4b38d0952763232
+  languageName: node
+  linkType: hard
+
+"jest-mock-promise@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "jest-mock-promise@npm:2.0.2"
+  checksum: 51249e6aa0102739b82fa1e735d40a656a6657e6910d84d623817b9f0852a7f325fe56eb20eb039660528a1de51734e06e1c4b3d8ac5bf6b6dcb846af4a46446
+  languageName: node
+  linkType: hard
+
 "jest-mock@npm:^29.6.3":
   version: 29.6.3
   resolution: "jest-mock@npm:29.6.3"
@@ -6844,7 +6860,7 @@ __metadata:
     "@testing-library/dom": ^9.3.1
     "@testing-library/jest-dom": ^6.1.2
     "@testing-library/react": ^14.0.0
-    "@testing-library/user-event": ^14.4.3
+    "@testing-library/user-event": ^14.5.1
     "@types/jest": ^29.5.4
     "@types/react": ^18.2.15
     "@types/react-dom": ^18.2.7
@@ -6858,6 +6874,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.4.3
     jest-environment-jsdom: ^29.6.4
+    jest-mock-fetch: ^2.0.5
     jest-svg-transformer: ^1.0.0
     jsdom: ^22.1.0
     prettier: 3.0.2
